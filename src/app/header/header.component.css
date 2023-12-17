@@ -5,3 +5,7 @@
     height: 30px;
     margin-right: 10px;
 }
+
+.navbar-nav .nav-item .nav-link {
+    color: #000;
+}

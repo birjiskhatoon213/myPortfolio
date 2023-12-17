@@ -1,0 +1,14 @@
+.about-section {
+    background-image: url('src/assets/bg-image.jpg');
+    background-size: cover;
+    background-position: top center; /* Adjusted to 'top' */
+    color: #fff;
+    /* padding: 100px 0; */
+    height: 80vh; /* Adjusted to 80vh */
+    display: flex;
+    align-items: center;
+}
+
+.about-content {
+    text-align: left;
+}

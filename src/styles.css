@@ -1,3 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 /* Add this line at the top of styles.css */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+
+.textColor{
+    color: #000;
+}
+
+.fontName{
+    font-family: cursive;
+}

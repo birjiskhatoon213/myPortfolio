@@ -2,10 +2,21 @@
 /* Add this line at the top of styles.css */
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
-.textColor{
+.textColor {
     color: #000;
 }
 
-.fontName{
-    font-family: cursive;
+.fontName {
+    font-family: 'Noto Sans Korean', sans-serif;
+}
+
+.alignCenter {
+    align-items: center;
+}
+
+@font-face {
+    font-family: 'Noto Sans Korean';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Noto Sans Korean Light'), local('NotoSansKRLight'), url('./assets/fonts/NoToSans/NotoSansKR-Light.ttf') format('truetype');
 }

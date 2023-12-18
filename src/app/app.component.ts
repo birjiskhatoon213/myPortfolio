@@ -1,3 +1,5 @@
+// src/app/app.component.ts
+
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +9,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'my-portfolio';
+
+  headerTextColor = ''; // Default text color
+  headerBgColor = '';   // Default background color
+
+  onColorChange(colors: { textColor: string; bgColor: string }) {
+    this.headerTextColor = colors.textColor;
+    this.headerBgColor = colors.bgColor;
+  }
 }

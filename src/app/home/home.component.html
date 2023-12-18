@@ -1,10 +1,10 @@
 <!-- src/app/home/home.component.html -->
 
-<section id="about" class="about-section fontName">
+<section id="home" class="home-section fontName bgColor textColor">
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-6">
-                <div class="about-content">
+                <div class="home-content">
                     <h2>Hey, I'm Birjis Khatoon</h2>
                     <p>A Frontend focused Web Developer building the Frontend of Websites and Web Applications that
                         leads to the success of the overall product.</p>
@@ -14,21 +14,81 @@
     </div>
 </section>
 
-<section id="skills">
-    <!-- Skills content goes here -->
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos impedit eveniet pariatur earum velit excepturi
-        incidunt ipsum. Odit expedita nostrum quia. Animi ut commodi asperiores adipisci in magnam mollitia explicabo.
-    </p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos impedit eveniet pariatur earum velit excepturi
-        incidunt ipsum. Odit expedita nostrum quia. Animi ut commodi asperiores adipisci in magnam mollitia explicabo.
-    </p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos impedit eveniet pariatur earum velit excepturi
-        incidunt ipsum. Odit expedita nostrum quia. Animi ut commodi asperiores adipisci in magnam mollitia explicabo.
-    </p>
-    <p>this is skills</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos impedit eveniet pariatur earum velit excepturi
-        incidunt ipsum. Odit expedita nostrum quia. Animi ut commodi asperiores adipisci in magnam mollitia explicabo.
-    </p>
+<section id="about" class="fontName bgColor textColor text-center">
+    <div class="spaceAbout">
+        <h2>ABOUT ME</h2>
+        <p>Here you will find more information about me, what I do, and my current skills mostly in terms of programming
+            and technology.</p>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <!-- Get to know me section -->
+            <div class="col-md-6">
+                <div class="mb-4 text-start">
+                    <p><strong>Get to know me!</strong></p>
+                    <p>I'm a Frontend Web Developer building the Front-end of Websites and Web Applications that leads
+                        to the success of the overall product. Check out some of my work in the Projects section.</p>
+                    <p>I also like sharing content related to the stuff that I have learned over the years in Web
+                        Development so it can help other people of the Dev Community. Feel free to Connect or Follow me
+                        on my Linkedin where I post useful content related to Web Development and Programming.</p>
+                    <p>I'm open to Job opportunities where I can contribute, learn, and grow. If you have a good
+                        opportunity that matches my skills and experience, then don't hesitate to contact me.</p>
+
+                    <button class="removeDefBtnCss buttonColors contactBtn">CONTACT</button>
+                </div>
+            </div>
+
+            <!-- My Skills section -->
+            <div class="col-md-6">
+                <div class="mb-4">
+                    <p><strong>My Skills</strong></p>
+                    <div class="skills-list">
+                        <div *ngFor="let skill of skills" class="skill-item">{{ skill }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="projects" class="fontName bgColor textColor text-center">
+    <div class="spaceAbout">
+        <h2>PROJECTS</h2>
+        <p>Here you will find some of the personal and client projects that I created with each project containing its
+            own case study.</p>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div *ngFor="let project of projects" class="col-md-6 text-start">
+                <div class="mb-4">
+                    <p><strong>{{ project.title }}</strong></p>
+                    <p>{{ project.description }}</p>
+                    <button class="removeDefBtnCss buttonColors contactBtn">{{ project.caseStudy }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="download" class="fontName bgColor textColor text-center">
+    <div class="spaceAbout">
+        <h2>DOWNLOAD</h2>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div *ngFor="let download of downloads" class="col-md-6 text-start">
+                <div class="mb-4">
+                    <p><strong>{{ download.title }}</strong></p>
+                    <p>{{ download.description }}</p>
+                    <button class="removeDefBtnCss buttonColors contactBtn"
+                        (click)="downloadResource(download.fileUrl)">{{ download.buttonText }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- ... (other sections) ... -->

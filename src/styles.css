@@ -1,9 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
-/* Add this line at the top of styles.css */
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
+:root {
+    --primary-color: #C17F6A;
+    /* Set your primary text and icon color here */
+    /* --bg-color: rgb(37, 189, 148); */
+    --bg-color: #0A0F38;
+    /* --bg-color: #ffffff; */
+    /* Set your background color here */
+}
+
+
 .textColor {
-    color: #000;
+    color: var(--primary-color) !important;
+}
+
+.bgColor {
+    background-color: var(--bg-color) !important;
+}
+
+.buttonColors {
+    color: var(--bg-color) !important;
+    background-color: var(--primary-color) !important;
+}
+
+.removeDefBtnCss{
+    background: none;
+    border-style: none;
+}
+
+nav.navbar .navbar-nav .nav-link.textColor {
+    color: var(--primary-color) !important;
+}
+
+.custom-toggler .bar {
+    background-color: var(--primary-color) !important;
 }
 
 .fontName {
@@ -12,6 +42,10 @@
 
 .alignCenter {
     align-items: center;
+}
+
+.hand {
+    cursor: pointer;
 }
 
 @font-face {

@@ -4,8 +4,61 @@
     width: 30px;
     height: 30px;
     margin-right: 10px;
+    background: #fff;
+    border-radius: 15px;
+    padding: 5px;
 }
 
-.navbar-nav .nav-item .nav-link {
-    color: #000;
+.custom-toggler {
+    will-change: transform;
+    width: 30px;
+    height: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.bar {
+    width: 30px;
+    height: 2px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.custom-toggler.open .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-3px, 6px);
+}
+
+.custom-toggler.open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.custom-toggler.open .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-3px, -6px);
+}
+
+.navbar-nav .nav-link {
+    margin-top: 5px;
+}
+
+.colorPicker {
+    text-align: right;
+    padding: 1rem;
+}
+
+.applyBtn{
+    border-radius: 5px;
+    padding: 5px;
+    margin: 1rem 0;
+}
+
+@media (max-width: 767px) {
+    .navbar-nav .nav-item {
+        text-align: center;
+    }
+
+    .colorPicker {
+        text-align: left;
+    }
 }

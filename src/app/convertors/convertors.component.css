@@ -1,6 +1,27 @@
-.sticky-header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
+.convertor-category {
+    margin-bottom: 20px;
+}
+
+.card {
+    min-height: 7rem;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.card-body {
+    flex-grow: 1;
+    padding: 1rem;
+}
+
+.card:last-child {
+    margin-right: 0;
+}
+
+@media (max-width: 768px) {
+    .card {
+        flex: 0 0 100%;
+        margin-right: 0;
+    }
 }

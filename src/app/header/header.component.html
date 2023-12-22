@@ -60,7 +60,7 @@
 <!-- Add content specific to ConvertorsHeader -->
 <!-- Add content specific to ConvertorsHeader -->
 <div *ngIf="isConvertorsHeader">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light p-2">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light p-2" id="convertorsHeader">
         <a class="navbar-brand" href="#">Convertors</a>
         <button class="navbar-toggler" type="button" (click)="toggleAllConvertors()">
             <span [ngClass]="{'navbar-toggler-icon': !showAllConvertors, 'close-icon': showAllConvertors}"></span>
@@ -78,7 +78,9 @@
             <div *ngFor="let category of categories" class="category">
                 <strong>{{ category.name }}:</strong>
                 <ul class="convertor-list">
-                    <li *ngFor="let convertor of category.convertors">{{ convertor }}</li>
+                    <li *ngFor="let convertor of category.convertors" (click)="onConvertorNameClick(convertor.name)"
+                        class="hand">{{
+                        convertor.name }}</li>
                 </ul>
             </div>
         </div>

@@ -1,0 +1,17 @@
+<div class="container">
+    <h1 class="text-center">Convertors</h1>
+    <div class="row">
+        <div class="col-12">
+            <div *ngFor="let category of categories" class="convertor-category">
+                <h2>{{ category.name }}</h2>
+                <div class="card-deck">
+                    <div *ngFor="let convertor of category.convertors" class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ convertor }}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

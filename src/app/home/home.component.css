@@ -27,14 +27,89 @@
     margin: 0.6rem;
 }
 
-.spaceAbout{
+.spaceAbout {
     padding-top: 5rem;
     margin-bottom: 5rem;
 }
 
-.contactBtn{
+.spaceAbout p {
+    padding: 0rem 0.75rem;
+}
+
+.home-section,
+.about-section,
+.projects-section,
+.download-section,
+.contact-section {
+    padding: 0rem 1rem;
+}
+
+.projectBtn {
     border-radius: 5px;
-    padding: 5px;
+    padding: 15px;
     margin: 1rem 0;
 }
 
+.heightAndScroll {
+    padding: 0rem 1rem;
+    border-radius: 8px;
+    height: 8rem;
+    overflow-y: auto;
+    /* scrollbar-color: #393838; */
+}
+
+.heightAndScroll::-webkit-scrollbar {
+    width: 12px;
+}
+
+.heightAndScroll::-webkit-scrollbar-thumb {
+    background-color: var(--bg-color);
+    opacity: 0.7;
+}
+
+.heightAndScroll::-webkit-scrollbar-track {
+    background-color: var(--primary-color);
+    border-left: 1px solid var(--bg-color);
+    border-right: 1px solid var(--bg-color);
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icon {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.contactBox {
+    height: 50vh;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 1rem;
+    /* margin-bottom: 2rem; */
+    margin: 1rem auto 4rem auto;
+    overflow: hidden;
+    display: flex;
+    /* Use flex container */
+    flex-direction: column;
+    /* Stack children vertically */
+    justify-content: center;
+    /* Center children vertically */
+    align-items: center;
+    /* Center children horizontally */
+}
+
+.contactBtn {
+    border-radius: 5px;
+    padding: 10px 20px;
+    /* Adjust padding for better button appearance */
+    margin-top: 1rem;
+    /* Add some top margin to the button */
+}

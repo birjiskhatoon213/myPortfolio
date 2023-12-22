@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,11 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  showContactForm: boolean = false; // Flag to toggle between initial content and form
+
+  // Include your contact information
+  phoneNumber: string = "123-456-7890";
+  emailId: string = "birjiskhatoon213@gmail.com";
 
   skills: string[] = [
     'HTML', 'CSS', 'JavaScript', 'React', 'SASS', 'GIT', 'Github',
@@ -15,9 +21,9 @@ export class HomeComponent {
 
   projects: any[] = [
     {
-      title: 'Dopefolio',
-      description: 'Dopefolio is a successful Open-Source project that I created which has been featured on some of the biggest tech sites like CSS-Tricks, Hostinger, etc. & used by thousands of developers globally.',
-      caseStudy: 'CASE STUDY'
+      title: 'Convertors',
+      description: 'Convertors is a successful Open-Source project that I created which has been featured on some of the biggest tech sites like CSS-Tricks, Hostinger, etc. & used by thousands of developers globally. Dopefolio is a successful Open-Source project that I created which has been featured on some of the biggest tech sites like CSS-Tricks, Hostinger, etc. & used by thousands of developers globally.',
+      projectLink: 'home/projects/convertors'
     },
     {
       title: 'Wilsonport',
@@ -69,7 +75,7 @@ export class HomeComponent {
     }
   ];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
 
   // Placeholder function for handling file download logic
@@ -96,5 +102,16 @@ export class HomeComponent {
       document.body.removeChild(link);
     });
   }
+  toggleContactForm() {
+    this.showContactForm = !this.showContactForm;
+  }
 
+  submitForm() {
+    // Add your form submission logic here
+  }
+
+  navigateToProject(route: string): void {
+    // Use Angular's Router to navigate to the specified route
+    this.router.navigateByUrl(route);
+  }
 }

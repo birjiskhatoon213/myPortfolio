@@ -9,6 +9,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+// import { ConvertorsModule } from './convertors/convertors.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,11 @@ import { HttpClientModule } from '@angular/common/http';
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    // RouterModule.forRoot([
+    //   { path: 'convertors', loadChildren: () => import('./convertors/convertors.module').then(m => m.ConvertorsModule) },
+    // ]),
+    // ConvertorsModule,
   ],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]

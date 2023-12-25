@@ -1,12 +1,12 @@
 <div class="container">
-    <div class="row mt-3">
+    <div class="row mt-3" *ngIf="!openConvertor">
         <div class="col-12">
             <div *ngFor="let category of categories" class="convertor-category">
                 <h2>{{ category.name }}</h2>
                 <div class="row my-4">
                     <div *ngFor="let convertor of category.convertors" [attr.data-convertor-name]="convertor.name"
                         class="col-md-4" #convertorElement>
-                        <div class="card">
+                        <div class="card" (click)="selectConvertor(convertor)">
                             <div class="card-body">
                                 <h5 class="card-title">{{ convertor.name }}</h5>
                                 <p class="card-text">{{ convertor.description }}</p>
@@ -15,6 +15,41 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Convertor Details Section -->
+    <div *ngIf="openConvertor" class="convertor-details mt-4">
+        <div class="btn-group">
+            <!-- Back button to Convertors List -->
+            <button class="btn" (click)="goToConvertorsList()">
+                Back to Convertors
+            </button>
+
+            <button class="btn active" [class.active]="activeTab === 'openConvertor'"
+                (click)="toggleTab(this.openConvertor)">{{ this.openConvertor }}</button>
+            <button class="btn" [class.active]="activeTab === 'details'" (click)="toggleTab('details')">Details</button>
+        </div>
+
+        <!-- Conversion Details -->
+        <div *ngIf="activeTab === this.openConvertor" class="conversion">
+            <div class="conversion-item">
+                <span class="label">From Unit:</span>
+                <span class="value">{{ fromUnit }}</span>
+            </div>
+            <div class="conversion-item">
+                <span class="arrow">⇄</span>
+            </div>
+            <div class="conversion-item">
+                <span class="label">To Unit:</span>
+                <span class="value">{{ toUnit }}</span>
+            </div>
+        </div>
+
+        <!-- Details Section -->
+        <div *ngIf="activeTab === 'details'" class="details">
+            <!-- Add details display as per your requirements -->
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, sapiente?</p>
         </div>
     </div>
 </div>

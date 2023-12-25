@@ -31,6 +31,7 @@ export class HeaderComponent {
   isColorPicker = false;
   isConvertorsHeader: boolean = false;
   showAllConvertors = false;
+  openConvertor: string | undefined;
 
   categories: Category[] = [
     {
@@ -281,6 +282,11 @@ export class HeaderComponent {
     // Emit an event or use a service to notify the Convertors component about the selected convertor
     this.portfolioService.setSelectedConvertor(convertorName);
     this.toggleAllConvertors();
+  }
+
+  goToConvertorsList(): void {
+    this.portfolioService.triggerFunctionCall();
+    window.scroll(0, 0);
   }
 
 }

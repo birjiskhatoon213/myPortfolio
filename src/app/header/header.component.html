@@ -61,7 +61,8 @@
 <!-- Add content specific to ConvertorsHeader -->
 <div *ngIf="isConvertorsHeader">
     <nav class="navbar navbar-expand-lg navbar-light bg-light p-2" id="convertorsHeader">
-        <a class="navbar-brand" href="#">Convertors</a>
+        <button class="navbar-brand removeDefBtnCss" [routerLink]="['/home']">Birjis Khatoon</button>
+        <button class="navbar-brand removeDefBtnCss" (click)="goToConvertorsList()">Convertors</button>
         <button class="navbar-toggler" type="button" (click)="toggleAllConvertors()">
             <span [ngClass]="{'navbar-toggler-icon': !showAllConvertors, 'close-icon': showAllConvertors}"></span>
         </button>

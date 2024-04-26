@@ -38,7 +38,7 @@ export class HomeComponent {
     {
       title: 'Crown Template',
       description: 'Crown is a web template that I created targeting the restaurant and food industry, which anyone can use to present their business online.',
-      caseStudy: 'CASE STUDY'
+      projectLink: '/https://www.placementpreparation.io/blog/best-websites-to-learn-angular/'
     }
   ];
 
@@ -110,8 +110,13 @@ export class HomeComponent {
     // Add your form submission logic here
   }
 
-  navigateToProject(route: string): void {
+  navigateToProject(route: any): void {
     // Use Angular's Router to navigate to the specified route
-    this.router.navigateByUrl(route);
+    if (route.title == 'Convertors') {
+      this.router.navigateByUrl(route.projectLink);
+    }
+    if (route.title == 'Crown Template') {
+      window.open(route.projectLink, '_blank');
+    }
   }
 }

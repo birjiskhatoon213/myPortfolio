@@ -1,0 +1,53 @@
+.medico-content h2 {
+    font-size: 45px;
+    font-weight: 900;
+}
+
+.medicoButtonCss {
+    background-color: #2461FF;
+    color: #FFFFFF;
+    border-radius: 56px;
+    border: 0;
+    padding: 5px 10px;
+    font-size: 11px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    /* margin: 0px 1rem; */
+}
+
+.blueBgColor {
+    background-color: #2461FF;
+}
+
+.blueBgColor ul {
+    list-style: none;
+}
+
+.blueBgColor li {
+    padding: 0 5rem;
+    border-right: 1px solid #FFFFFF;
+}
+
+.blueBgColor span {
+    color: #FFFFFF;
+}
+
+.blueBgColor h1 {
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0;
+}
+
+.blueBgColor img{
+    margin: 0 10px;
+    height: 20px;
+}
+
+@media (max-width: 767px) {
+    .blueBgColor li {
+        padding: 0 4rem 3rem 0;
+        /* border-bottom: 1px solid #FFFFFF; */
+    }
+}

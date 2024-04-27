@@ -2,11 +2,13 @@
 @import '~@fortawesome/fontawesome-free/css/all.css';
 
 :root {
-    --primary-color: #C17F6A;
+    /* --primary-color: #C17F6A; */
+    --primary-color: #2461FF;
     /* Set your primary text and icon color here */
     /* --bg-color: rgb(37, 189, 148); */
-    --bg-color: #0A0F38;
-    /* --bg-color: #ffffff; */
+    /* --bg-color: #0A0F38; */
+    --bg-color: #FFFFFF;
+    /* --bg-colorgb(9, 9, 11)fff; */
     /* Set your background color here */
 }
 
@@ -34,7 +36,7 @@ nav.navbar .navbar-nav .nav-link.textColor {
 }
 
 .custom-toggler .bar {
-    background-color: var(--primary-color) !important;
+    background-color: var(--primary-color);
 }
 
 .fontName {

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { PortfolioServiceService } from '../portfolio-service.service';
 
 @Component({
   selector: 'app-home',
@@ -28,7 +29,7 @@ export class HomeComponent {
     {
       title: 'Wilsonport',
       description: 'Wilsonport is a multiservice logistics and transport company, and I created their website from scratch using the frontend tools I know.',
-      caseStudy: 'CASE STUDY'
+      projectLink: 'home/projects/medico'
     },
     {
       title: 'Boreal Coffee Clone',
@@ -75,8 +76,10 @@ export class HomeComponent {
     }
   ];
 
-  constructor(private http: HttpClient, private router: Router) { }
-
+  constructor(private http: HttpClient, private router: Router, private portfolioService: PortfolioServiceService) { }
+  ngOnInit() {
+    this.portfolioService.goToHome();
+  }
 
   // Placeholder function for handling file download logic
   downloadResource(fileUrl: string): void {
@@ -112,11 +115,12 @@ export class HomeComponent {
 
   navigateToProject(route: any): void {
     // Use Angular's Router to navigate to the specified route
-    if (route.title == 'Convertors') {
-      this.router.navigateByUrl(route.projectLink);
-    }
-    if (route.title == 'Crown Template') {
-      window.open(route.projectLink, '_blank');
-    }
+    // if (route.title == 'Convertors') {
+    this.router.navigateByUrl(route.projectLink);
+    this.portfolioService.headerConvertor(false);
+    // }
+    // if (route.title == 'Crown Template') {
+    //   window.open(route.projectLink, '_blank');
+    // }
   }
 }

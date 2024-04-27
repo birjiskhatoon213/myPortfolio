@@ -1,5 +1,5 @@
 <!-- src/app/header/header.component.html -->
-<div *ngIf="!isConvertorsHeader">
+<div *ngIf="portfolioService.isHomeHeader==true" class="homeHeader">
     <nav class="navbar navbar-expand-lg navbar-light bgColor fontName alignCenter">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
@@ -59,9 +59,9 @@
 </div>
 <!-- Add content specific to ConvertorsHeader -->
 <!-- Add content specific to ConvertorsHeader -->
-<div *ngIf="isConvertorsHeader">
+<div *ngIf="isConvertorsHeader==true" class="convertorHeader">
     <nav class="navbar navbar-expand-lg navbar-light bg-light p-2" id="convertorsHeader">
-        <button class="navbar-brand removeDefBtnCss" [routerLink]="['/home']">Birjis Khatoon</button>
+        <button class="navbar-brand removeDefBtnCss" (click)="goToHome()">Birjis Khatoon</button>
         <button class="navbar-brand removeDefBtnCss" (click)="goToConvertorsList()">Convertors</button>
         <button class="navbar-toggler" type="button" (click)="toggleAllConvertors()">
             <span [ngClass]="{'navbar-toggler-icon': !showAllConvertors, 'close-icon': showAllConvertors}"></span>
@@ -86,4 +86,58 @@
             </div>
         </div>
     </div>
+</div>
+<div class="medico" *ngIf="isMedicoHeader==true" style="background-color: #FFFFFF;">
+    <nav class="navbar navbar-expand-lg navbar-light fontName alignCenter p-0">
+        <div class="container-fluid p-0">
+            <a class="navbar-brand hand px-1" (click)="goToHome()">
+                <span class="">Birjis Khatoon</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+                (click)="toggleMedicoNavbar()">
+                <div class="custom-toggler" [ngClass]="{'open': !isMedicoNavbarCollapsed}">
+                    <div class="bar" style="background-color: blue;"></div>
+                    <div class="bar" style="background-color: blue;"></div>
+                    <div class="bar" style="background-color: blue;"></div>
+                </div>
+            </button>
+            <div class="collapse navbar-collapse justify-content-start px-2" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <button class="nav-link hand" (click)="scrollTo('medico')">
+                            <img src="assets/medicoIcon.svg" alt="" style="height: 20px;">
+                            <strong>Medico</strong>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link hand" (click)="scrollTo('features')">Features</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" (click)="scrollTo('howitworks')">How it works</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" (click)="scrollTo('prices')">Prices</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" (click)="scrollTo('contactMedico')">Contact</button>
+                    </li>
+                </ul>
+                <ul class="navbar-nav" style="margin-left: auto;">
+                    <li class="nav-item">
+                        <span class="nav-link">
+                            <img src="assets/medicoPhone.svg" alt="" style="height: 20px;">
+                            <span>+91 8555851483</span>
+                        </span>
+                    </li>
+                    <li class="nav-item my-auto" style="height: fit-content;">
+                        <button class="medicoButtonCss" (click)="scrollTo('contactMedico')">
+                            <img src="assets\medicoAppointment.svg" alt="" style="height: 20px;">
+                            <span>Book an appointment</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </div>

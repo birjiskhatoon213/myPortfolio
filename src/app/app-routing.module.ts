@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { MedicoComponent } from './medico/medico.component';
+import { MedicaComponent } from './medica/medica.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -14,11 +14,11 @@ const routes: Routes = [
     path: 'home/projects/convertors/:convertorName',
     loadChildren: () => import('./convertors/convertors.module').then(m => m.ConvertorsModule),
   },
-  { path: 'home/projects/medico', component: MedicoComponent },
+  { path: 'home/projects/medica', component: MedicaComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: false }) ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

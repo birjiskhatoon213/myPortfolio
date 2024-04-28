@@ -1,0 +1,124 @@
+<div>
+    <section id="medico" class="medico-section fontName">
+        <div class="container-fluid">
+            <div class="row" style="margin-top: 7%;">
+                <div class="col-md-6">
+                    <div class="medico-content">
+                        <h2>Experienced general practitioners who have an eye for your care</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+                        </p>
+                        <button class="medicoButtonCss">
+                            <img src="assets\medicoAppointment.svg" alt="" style="height: 20px;">
+                            <span>Book an appointment</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <img src="assets\medicoCoverImg.png" alt="" class="w-100 h-100">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="features" class="feature-section fontName">
+        <div class="container-fluid mt-3">
+            <div class="row">
+                <div class="col-md-12 blueBgColor">
+                    <!-- <div class=""> -->
+                    <ul class="py-5 col-md-12 row">
+                        <li class="col-md-4 col-12" *ngFor="let feature of features">
+                            <div class="d-flex alignCenter">
+                                <h1>{{feature.header}}</h1>
+                                <button class="removeDefBtnCss"><img src="assets\medicoRightArrow.svg" alt=""></button>
+                            </div>
+                            <span>{{feature.text}}</span>
+                        </li>
+                    </ul>
+                    <!-- </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="practices" class="practice-section fontName">
+        <div class="container-fluid">
+            <div class="row" style="margin-top: 10%;">
+                <div class="col-md-4 col-12 mb-4">
+                    <h1 style="font-size: 40px;">Our practices</h1>
+                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt tenetur corporis
+                        earum.</span>
+                </div>
+                <div class="col-md-8 col-12">
+                    <div class="row">
+                        <div class="col-md-6 col-12 col-sm-6 mb-4" *ngFor="let practice of practices">
+                            <div class="practice-item">
+                                <h1>{{practice.header}}</h1>
+                                <span>{{practice.text}}</span>
+                            </div>
+                            <button class="removeDefBtnCss p-0 mt-3">Read more
+                                <img src="assets\medicoBlackRightArrow.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <button class="medicoButtonCss mb-4">
+                        <span>All practices</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="howitworks" class="howitworks-section fontName mb-5">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 col-12 text-center">
+                    <div class="col-md-12 col-12">
+                        <h1>Why choose us</h1>
+                        <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius magnam accusantium quis
+                            facere?</span>
+                    </div>
+                    <div class="col-md-12 col-12">
+                        <img class="my-4" src="assets/whychooseus.png" alt="">
+                    </div>
+                    <h1 style="font-size: 25px;">Lorem ipsum dolor sit amet, consectetur adipisicing.</h1>
+                    <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint accusantium ullam numquam
+                        laudantium?</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container-fluid">
+            <div class="row d-flex align-items-center" *ngFor="let item of data; let i = index">
+                <div class="col-md-6 px-5" [ngClass]="{'order-md-2': i % 2 === 1}">
+                    <div class="text">
+                        <h2>{{item.title}}</h2>
+                        <p>{{item.description}}</p>
+                    </div>
+                    <button class="removeDefBtnCss p-0 mt-1">{{item.button}}
+                        <img src="assets\medicoBlackRightArrow.svg" alt="" style="height: 10px;">
+                    </button>
+                </div>
+                <div class="col-md-6" [ngClass]="{'order-md-1': i % 2 === 1}">
+                    <img src="{{item.imageUrl}}" alt="{{item.alt}}" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="blueAppointment">
+        <div class="container-fluid">
+            <div class="row d-flex justify-content-center p-5">
+                <div class="col-md-8 col-12 text-center">
+                    <h1>Schedule an in person or virtual appointment today</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                    <div class="m-3">
+                        <button class="removeDefBtnCss m-2 pb-1">
+                            <span class="p-2">Book in person appointment</span>
+                        </button>
+                        <button class="removeDefBtnCss m-2 pb-1">
+                            <span class="p-2">Book virtual appointment</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

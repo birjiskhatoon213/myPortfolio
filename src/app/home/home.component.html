@@ -106,24 +106,24 @@
         <div class="container">
             <div class="row">
                 <!-- Initial Content -->
-                <div *ngIf="!showContactForm" class="col-md-5 contactBox">
+                <!-- <div *ngIf="!showContactForm" class="col-md-5 contactBox">
                     <p>Feel free to contact me by submitting the form below, and I will get back to you as soon as
                         possible.</p>
                     <button class="removeDefBtnCss buttonColors contactBtn" (click)="toggleContactForm()">Drop
                         Details</button>
-                </div>
+                </div> -->
 
-                <div *ngIf="!showContactForm" class="col-md-5 contactBox">
+                <div *ngIf="!showContactForm" class="col-md-12 contactBox">
                     <!-- Social Media Icons and Contact Information -->
                     <!-- Include your social media icons and contact information here -->
                     <p>Phone: {{ phoneNumber }}</p>
                     <p>Email: {{ emailId }}</p>
                     <!-- Add other contact details as needed -->
                     <div class="social-icons">
-                        <a href="#" class="social-icon textColor" target="_blank">
+                        <!-- <a href="#" class="social-icon textColor" target="_blank">
                             <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-icon textColor" target="_blank">
+                        </a> -->
+                        <a href="https://www.linkedin.com/in/birjiskhatoon213/" class="social-icon textColor" target="_blank">
                             <i class="fab fa-linkedin"></i>
                         </a>
                         <!-- Add more social media icons as needed -->
@@ -131,7 +131,7 @@
                 </div>
 
                 <!-- Form Content -->
-                <div *ngIf="showContactForm" class="col-md-5 contactBox">
+                <!-- <div *ngIf="showContactForm" class="col-md-5 contactBox">
                     <form action="https://formkeep.com/f/83e1a9e3741e" accept-charset="UTF-8"
                         enctype="multipart/form-data" method="POST" onsubmit="console.log('Form submitted!')">
                         <input type="hidden" name="utf8" value="✓">
@@ -145,14 +145,14 @@
                         <button type="submit">Submit</button>
                     </form>
 
-                </div>
+                </div> -->
 
                 <!-- Additional Information -->
-                <div *ngIf="showContactForm" class="col-md-5 contactBox">
+                <!-- <div *ngIf="showContactForm" class="col-md-5 contactBox">
                     <p>To check my details, click on the below button:</p>
                     <button class="removeDefBtnCss buttonColors contactBtn" (click)="toggleContactForm()">Check
                         Details</button>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>

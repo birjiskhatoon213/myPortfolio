@@ -171,6 +171,7 @@ export class PortfolioServiceService {
 
   headerConvertor(value: boolean) {
     this.isHomeHeader = value;
+    window.scroll(0,0);
   }
 
   setCategories(categories: Category[]): void {

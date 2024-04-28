@@ -119,7 +119,7 @@ export class HeaderComponent {
   updateHeaderBasedOnRoute(url: string): void {
     // Check if the current route matches the desired pattern
     this.isConvertorsHeader = url.includes('/home/projects/convertors');
-    this.isMedicoHeader = url.includes('/home/projects/medico');
+    this.isMedicoHeader = url.includes('/home/projects/medica');
     // this.portfolioService.headerConvertor(false);
   }
 

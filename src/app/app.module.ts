@@ -11,12 +11,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 // import { ConvertorsModule } from './convertors/convertors.module';
 import { RouterModule } from '@angular/router';
+import { MedicaComponent } from './medica/medica.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    MedicaComponent
   ],
   imports: [
     BrowserModule,

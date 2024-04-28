@@ -12,7 +12,7 @@ export class HomeComponent {
   showContactForm: boolean = false; // Flag to toggle between initial content and form
 
   // Include your contact information
-  phoneNumber: string = "123-456-7890";
+  phoneNumber: string = "+91 8555851483";
   emailId: string = "birjiskhatoon213@gmail.com";
 
   skills: string[] = [
@@ -29,7 +29,7 @@ export class HomeComponent {
     {
       title: 'Wilsonport',
       description: 'Wilsonport is a multiservice logistics and transport company, and I created their website from scratch using the frontend tools I know.',
-      projectLink: 'home/projects/medico'
+      projectLink: 'home/projects/medica'
     },
     {
       title: 'Boreal Coffee Clone',
@@ -39,7 +39,7 @@ export class HomeComponent {
     {
       title: 'Crown Template',
       description: 'Crown is a web template that I created targeting the restaurant and food industry, which anyone can use to present their business online.',
-      projectLink: '/https://www.placementpreparation.io/blog/best-websites-to-learn-angular/'
+      projectLink: 'CASE STUDY'
     }
   ];
 
@@ -54,7 +54,7 @@ export class HomeComponent {
       title: 'Resume',
       description: 'Get my latest resume to learn more about my professional background, education, and work experience. The resume highlights key achievements, skills, and technologies I am proficient in, making it easier for you to understand my qualifications.',
       buttonText: 'Download Resume',
-      fileUrl: 'assets/downloads/resume.pdf'
+      fileUrl: 'assets/downloads/Birjis Khatoon Resume.pdf'
     },
     {
       title: 'Cover Letter',

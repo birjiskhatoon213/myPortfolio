@@ -13,6 +13,10 @@ interface Category {
 interface Convertor {
   name: string;
   description: string;
+  inputName?: string;
+  inputUnit?: string;
+  outputName?: string;
+  outputUnit?: string;
 }
 
 @Component({
@@ -22,9 +26,9 @@ interface Convertor {
 })
 export class HeaderComponent {
   @Output() categorySelected = new EventEmitter<string>();
-  textColor: string = '#C17F6A';
+  textColor: string = '#2461FF';
   // #25BD94
-  bgColor: string = '#0A0F38';
+  bgColor: string = '#FFFFFF';
   isNavbarCollapsed = true;
   isMedicoNavbarCollapsed = true;
   colorPickerForm: FormGroup;
@@ -37,6 +41,7 @@ export class HeaderComponent {
   categories: Category[] = [];
 
   isMedicoHeader: boolean = false;
+  activeSection: string = 'home';
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private renderer: Renderer2, private el: ElementRef, private fb: FormBuilder, public portfolioService: PortfolioServiceService) {
     // Initialize the colorPickerForm with default values
@@ -71,6 +76,8 @@ export class HeaderComponent {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       this.closeNavbar();
     }
+    this.activeSection = target;
+    this.isColorPicker = false;
   }
 
   toggleNavbar(): void {
@@ -114,33 +121,11 @@ export class HeaderComponent {
 
   openColorPicker() {
     this.isColorPicker = !this.isColorPicker;
+    this.activeSection = 'colorpicker';
   }
 
   updateHeaderBasedOnRoute(url: string): void {
-    // Check if the current route matches the desired pattern
-    this.isConvertorsHeader = url.includes('/home/projects/convertors');
-    this.isMedicoHeader = url.includes('/home/projects/medica');
-    // this.portfolioService.headerConvertor(false);
-  }
-
-  selectCategory(category: string): void {
-    this.categorySelected.emit(category);
-  }
-
-  toggleAllConvertors(): void {
-    this.showAllConvertors = !this.showAllConvertors;
-  }
-
-  // Method to handle click on convertor name in the header
-  onConvertorNameClick(convertorName: string): void {
-    // Emit an event or use a service to notify the Convertors component about the selected convertor
-    this.portfolioService.setSelectedConvertor(convertorName);
-    this.toggleAllConvertors();
-  }
-
-  goToConvertorsList(): void {
-    this.portfolioService.triggerFunctionCall();
-    window.scroll(0, 0);
+    this.activeSection = 'home';
   }
 
   goToHome() {
@@ -148,14 +133,5 @@ export class HeaderComponent {
     // this.scrollTo('home');
     this.isMedicoNavbarCollapsed = true;
     window.scroll(0, 0);
-  }
-
-  goToMedico(): void {
-    this.portfolioService.triggerFunctionCall();
-    window.scroll(0, 0);
-  }
-
-  toggleMedicoNavbar() {
-    this.isMedicoNavbarCollapsed = !this.isMedicoNavbarCollapsed;
   }
 }

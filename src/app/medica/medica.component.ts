@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2, ElementRef } from '@angular/core';
+import { PortfolioServiceService } from '../portfolio-service.service';
 
 @Component({
   selector: 'app-medica',
@@ -53,30 +54,76 @@ export class MedicaComponent {
     {
       title: 'Dedicated doctors with the core mission to help.',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
-      button:'See our doctors',
+      button: 'See our doctors',
       imageUrl: 'assets/img1.png',
       alt: 'Image 1'
     },
     {
       title: 'Get access to specialty tests and breakthrough information.',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
-      button:'Find test',
+      button: 'Find test',
       imageUrl: 'assets/img2.jpg',
       alt: 'Image 2'
     },
     {
       title: 'Find out how we can help you help you.',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
-      button:'Book a virtual appointment',
+      button: 'Book a virtual appointment',
       imageUrl: 'assets/img3.jpg',
       alt: 'Image 3'
     }
   ];
+  isNavbarCollapsed = true;
+  isMedicoNavbarCollapsed = true;
+  isTogglingNavbar = false;
 
-
-  constructor() { }
+  constructor(private renderer: Renderer2, private el: ElementRef, private portfolioService: PortfolioServiceService) { }
 
   ngOnInit() {
 
+  }
+
+  scrollTo(target: string): void {
+    const element = document.getElementById(target);
+
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      this.closeNavbar();
+    }
+
+    this.isMedicoNavbarCollapsed = true;
+  }
+
+  toggleNavbar(): void {
+    if (this.isTogglingNavbar) {
+      return; // If already in progress, ignore the click
+    }
+
+    this.isTogglingNavbar = true;
+
+    this.isNavbarCollapsed = !this.isNavbarCollapsed;
+    if (this.isNavbarCollapsed) {
+      this.closeNavbar();
+    }
+
+    // Reset the flag after a short delay (adjust as needed)
+    setTimeout(() => {
+      this.isTogglingNavbar = false;
+    }, 300);
+  }
+  closeNavbar(): void {
+    this.isNavbarCollapsed = true;
+    this.renderer.removeClass(this.el.nativeElement.querySelector('.navbar-collapse'), 'show');
+  }
+
+  goToHome() {
+    this.portfolioService.goToHome();
+    // this.scrollTo('home');
+    this.isMedicoNavbarCollapsed = true;
+    window.scroll(0, 0);
+  }
+
+  toggleMedicoNavbar() {
+    this.isMedicoNavbarCollapsed = !this.isMedicoNavbarCollapsed;
   }
 }

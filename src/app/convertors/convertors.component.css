@@ -1,3 +1,10 @@
+.convertorHeader {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
 .convertor-category {
     margin-bottom: 20px;
 }
@@ -19,9 +26,89 @@
     margin-right: 0;
 }
 
+.active {
+    border-bottom: 2px solid black;
+}
+
+.all-convertors {
+    background-color: #c6cbbf;
+    color: #000000;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 50vh;
+    /* Set the max height to 50% of the viewport height */
+    scrollbar-width: thin;
+    /* For Firefox */
+    scrollbar-color: transparent transparent;
+    /* For Firefox */
+    -ms-overflow-style: none;
+    /* For Internet Explorer and Edge */
+}
+
+.all-convertors::-webkit-scrollbar {
+    width: 0 !important;
+    /* For Chrome, Safari, and Opera */
+}
+
+.all-convertors ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.all-convertors li {
+    margin-bottom: 10px;
+}
+
+.all-convertors strong {
+    font-weight: bold;
+}
+
+.category-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.category {
+    flex-basis: 15%;
+    /* Adjust as needed for the desired number of categories per row */
+    margin: 5px;
+}
+
+.navbar-toggler-icon,
+.close-icon {
+    width: 1.5rem;
+    /* Set the desired width */
+    height: 1.5rem;
+    /* Set the desired height */
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.close-icon::before {
+    content: '\00D7';
+    /* Unicode character for '×' (close/cross) */
+    font-size: 1.5rem;
+    /* Set the desired font size */
+}
+
 @media (max-width: 768px) {
     .card {
         flex: 0 0 100%;
         margin-right: 0;
+    }
+
+    .all-convertors {
+        max-height: 100vh;
+        /* Set the max height to 100% of the viewport height for mobile view */
+    }
+
+    .category-container {
+        flex-direction: column;
+    }
+
+    .category {
+        flex-basis: 100%;
+        margin-bottom: 10px;
     }
 }

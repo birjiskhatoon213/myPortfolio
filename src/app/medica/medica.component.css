@@ -1,3 +1,10 @@
+.medicoHeader {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
 .medico-content h2 {
     font-size: 45px;
     font-weight: 900;

@@ -16,8 +16,21 @@ export class HomeComponent {
   emailId: string = "birjiskhatoon213@gmail.com";
 
   skills: string[] = [
-    'HTML', 'CSS', 'JavaScript', 'React', 'SASS', 'GIT', 'Github',
-    'Responsive Design', 'SEO', 'Terminal', 'Express Basics', 'SQL Basics'
+    "Angular", "HTML", "CSS", "TypeScript", "Bootstrap", "Responsive Design", "Git", "API Integration", "Debugging", "Testing",
+    "SQL", "NVDA", "Postman", "Swagger", "Figma (basics)", "Katalon (basics)"
+  ];
+
+  experience: string[] = [
+    "Developed UI screens for <strong>three applications:</strong> <br>- <strong>Employee office hours tracking and rostering application.</strong> <br>- <strong>Seat allocation application based on group and employee.</strong> <br>- <strong>Room booking application for employees in selected places.</strong>",
+    "Utilized <strong>Angular, HTML, CSS, and TypeScript</strong> for frontend development across all applications.",
+    "Integrated <strong>REST APIs</strong> for fetching and updating data within each application.",
+    "Implemented <strong>responsive design principles</strong> for optimal user experience.",
+    "<strong>Collaborated with backend teams</strong> for seamless integration of frontend and backend functionalities.",
+    "<strong>Utilized Angular components, services, and directives</strong> for dynamic user interfaces in all applications.",
+    "Ensured <strong>accessibility</strong> across devices, considering diverse user needs and implementing best practice.",
+    "Worked on <strong>role management implementation</strong> to ensure proper access control and security measures in each application.",
+    "Engaged in <strong>design discussions</strong> to align UI/UX with project goals and user requirements across all projects.",
+    "Provided <strong>support</strong> for all three projects, resolving tickets and addressing user queries promptly to ensure smooth operation of the applications."
   ];
 
   projects: any[] = [
@@ -34,7 +47,7 @@ export class HomeComponent {
     {
       title: 'Boreal Coffee Clone',
       description: 'I re-created the frontend of Boreal Coffee\'s official web app because I got attracted to their beautiful UI. It was a great experience for me to build the entire frontend.',
-      caseStudy: 'CASE STUDY'
+      projectLink: 'home/projects/photos'
     },
     {
       title: 'Crown Template',
@@ -122,5 +135,13 @@ export class HomeComponent {
     // if (route.title == 'Crown Template') {
     //   window.open(route.projectLink, '_blank');
     // }
+  }
+
+  scrollTo(target: string): void {
+    const element = document.getElementById(target);
+
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 }

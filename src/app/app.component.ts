@@ -1,7 +1,8 @@
 // src/app/app.component.ts
 
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, HostListener } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,14 +16,35 @@ export class AppComponent implements OnInit {
 
   headerTextColor = ''; // Default text color
   headerBgColor = '';   // Default background color
+  isPhotosHeader: boolean = false;
 
   ngOnInit(): void {
     this.router.navigate(['/home']);
-    window.scroll(0, 0);
+    this.router.events
+      .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        this.updateHeaderBasedOnRoute(event.url);
+      });
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+        }, 0);
+      }
+    });
+    // window.scroll(0, 0);
   }
 
   onColorChange(colors: { textColor: string; bgColor: string }) {
     this.headerTextColor = colors.textColor;
     this.headerBgColor = colors.bgColor;
+  }
+
+  updateHeaderBasedOnRoute(url: string): void {
+    // Check if the current route matches the desired pattern
+    // this.isConvertorsHeader = url.includes('/home/projects/convertors');
+    // this.isMedicoHeader = url.includes('/home/projects/medica');
+    this.isPhotosHeader = url.includes('/home/projects/photos');
+    // this.portfolioService.headerConvertor(false);
   }
 }

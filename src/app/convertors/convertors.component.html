@@ -1,17 +1,48 @@
+<div class="convertorHeader">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light p-2" id="convertorsHeader">
+        <button class="navbar-brand removeDefBtnCss" (click)="goToHome()">Birjis Khatoon</button>
+        <button class="navbar-brand removeDefBtnCss d-none d-sm-block"
+            (click)="goToConvertorsList()">Convertors</button>
+        <button class="navbar-toggler" type="button" (click)="toggleAllConvertors()">
+            <span [ngClass]="{'navbar-toggler-icon': !showAllConvertors, 'close-icon': showAllConvertors}"></span>
+        </button>
+
+        <div class="navbar-collapse">
+            <div class="navbar-nav">
+                <button class="btn btn-dark d-none d-lg-block" (click)="toggleAllConvertors()">Tools</button>
+            </div>
+        </div>
+    </nav>
+
+    <div *ngIf="showAllConvertors" class="all-convertors">
+        <div class="category-container">
+            <div *ngFor="let category of categories" class="category">
+                <strong>{{ category.name }}:</strong>
+                <ul class="convertor-list">
+                    <li *ngFor="let convertor of category.convertors" (click)="onConvertorNameClick(convertor)"
+                        class="hand">
+                        <button class="removeDefBtnCss text-start">{{convertor.name }}</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container">
-    <div class="row mt-3" *ngIf="!openConvertor">
+    <div class="row mt-3" *ngIf="!portfolioService.openConvertor">
         <div class="col-12">
             <div *ngFor="let category of categories" class="convertor-category">
                 <h2>{{ category.name }}</h2>
                 <div class="row my-4">
                     <div *ngFor="let convertor of category.convertors" [attr.data-convertor-name]="convertor.name"
                         class="col-md-4" #convertorElement>
-                        <div class="card" (click)="selectConvertor(convertor)">
-                            <div class="card-body">
+                        <button class="card w-100" (click)="selectConvertor(convertor)">
+                            <div class="card-body w-100">
                                 <h5 class="card-title">{{ convertor.name }}</h5>
                                 <p class="card-text">{{ convertor.description }}</p>
                             </div>
-                        </div>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -19,37 +50,57 @@
     </div>
 
     <!-- Convertor Details Section -->
-    <div *ngIf="openConvertor" class="convertor-details mt-4">
+    <div *ngIf="portfolioService.openConvertor" class="convertor-details mt-4">
         <div class="btn-group">
             <!-- Back button to Convertors List -->
             <button class="btn" (click)="goToConvertorsList()">
                 Back to Convertors
             </button>
 
-            <button class="btn active" [class.active]="activeTab === 'openConvertor'"
-                (click)="toggleTab(this.openConvertor)">{{ this.openConvertor }}</button>
+            <button class="btn active" [class.active]="activeTab != 'details'"
+                (click)="toggleTab(this.portfolioService.openConvertor)">{{ this.portfolioService.openConvertor }}</button>
             <button class="btn" [class.active]="activeTab === 'details'" (click)="toggleTab('details')">Details</button>
         </div>
 
         <!-- Conversion Details -->
-        <div *ngIf="activeTab === this.openConvertor" class="conversion">
-            <div class="conversion-item">
-                <!-- <span class="label">From Unit:</span> -->
-                <span class="value">{{ fromUnit }}</span>
-            </div>
-            <div class="conversion-item">
-                <span class="arrow">⇄</span>
-            </div>
-            <div class="conversion-item">
-                <!-- <span class="label">To Unit:</span> -->
-                <span class="value">{{ toUnit }}</span>
+        <div *ngIf="activeTab === this.portfolioService.openConvertor" class="conversion">
+            <div class="container-fluid mt-5">
+                <div class="row align-items-center">
+                    <div class="col-md-5 col-12">
+                        <div class="form-group mb-0">
+                            <label for="xInput">{{this.selectedConvertor.inputName}}</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="xInput" placeholder="" autocomplete="off"
+                                    [(ngModel)]="xValue" (input)="convertXValue()">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">{{this.selectedConvertor.inputUnit}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 col-1 text-center conversion-item mt-3 d-none d-md-block">
+                        <span class="arrow">⇄</span>
+                    </div>
+                    <div class="col-md-5 col-12">
+                        <div class="form-group mb-0">
+                            <label for="yInput">{{this.selectedConvertor.outputName}}</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="yInput" placeholder="" autocomplete="off"
+                                    [(ngModel)]="yValue" (input)="convertYValue()">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">{{this.selectedConvertor.outputUnit}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Details Section -->
         <div *ngIf="activeTab === 'details'" class="details">
             <!-- Add details display as per your requirements -->
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, sapiente?</p>
+            <p>{{this.selectedConvertor.details}}</p>
         </div>
     </div>
 </div>

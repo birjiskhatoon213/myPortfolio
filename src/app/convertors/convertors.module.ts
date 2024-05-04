@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { FormsModule } from '@angular/forms'; 
 import { ConvertorsRoutingModule } from './convertors-routing.module';
 import { ConvertorsComponent } from './convertors.component';
 
@@ -11,7 +11,8 @@ import { ConvertorsComponent } from './convertors.component';
   ],
   imports: [
     CommonModule,
-    ConvertorsRoutingModule
+    ConvertorsRoutingModule,
+    FormsModule 
   ]
 })
 export class ConvertorsModule { }

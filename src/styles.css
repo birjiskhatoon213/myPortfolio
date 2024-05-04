@@ -2,14 +2,8 @@
 @import '~@fortawesome/fontawesome-free/css/all.css';
 
 :root {
-    /* --primary-color: #C17F6A; */
     --primary-color: #2461FF;
-    /* Set your primary text and icon color here */
-    /* --bg-color: rgb(37, 189, 148); */
-    /* --bg-color: #0A0F38; */
     --bg-color: #FFFFFF;
-    /* --bg-colorgb(9, 9, 11)fff; */
-    /* Set your background color here */
 }
 
 
@@ -26,7 +20,7 @@
     background-color: var(--primary-color) !important;
 }
 
-.removeDefBtnCss{
+.removeDefBtnCss {
     background: none;
     border-style: none;
 }
@@ -49,6 +43,39 @@ nav.navbar .navbar-nav .nav-link.textColor {
 
 .hand {
     cursor: pointer;
+}
+
+.homeActiveUnderline {
+    border-bottom: 2px solid var(--primary-color) !important;
+}
+
+.custom-toggler {
+    will-change: transform;
+    width: 30px;
+    height: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.bar {
+    width: 30px;
+    height: 2px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.custom-toggler.open .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-3px, 6px);
+}
+
+.custom-toggler.open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.custom-toggler.open .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-3px, -6px);
 }
 
 @font-face {

@@ -6,8 +6,10 @@
                 <div class="col-md-6 offset-md-6">
                     <div class="home-content">
                         <h2>Hey, I'm Birjis Khatoon</h2>
-                        <p>A Frontend focused Web Developer building the Frontend of Websites and Web Applications that
-                            leads to the success of the overall product.</p>
+                        <p>A Front-End Developer with 3 years of industry expertise in HTML, CSS, TypeScript, and
+                            Angular framework. Proficient in crafting responsive user interfaces utilizing Bootstrap.
+                            Demonstrated ability in fostering collaborative relationships with designers, backend teams,
+                            and testers to ensure seamless project execution.</p>
                     </div>
                 </div>
             </div>
@@ -27,8 +29,11 @@
                 <!-- Get to know me section -->
                 <div class="col-md-6">
                     <div class="mb-4 text-start">
-                        <p><strong>Get to know me!</strong></p>
-                        <p>I'm a Frontend Web Developer building the Front-end of Websites and Web Applications that
+                        <p><strong>Experience</strong></p>
+                        <ul class="list-group">
+                            <li class="textColor" *ngFor="let point of experience" [innerHTML]="point">{{ point }}</li>
+                        </ul>
+                        <!-- <p>I'm a Frontend Web Developer building the Front-end of Websites and Web Applications that
                             leads
                             to the success of the overall product. Check out some of my work in the Projects section.
                         </p>
@@ -37,9 +42,10 @@
                             me
                             on my Linkedin where I post useful content related to Web Development and Programming.</p>
                         <p>I'm open to Job opportunities where I can contribute, learn, and grow. If you have a good
-                            opportunity that matches my skills and experience, then don't hesitate to contact me.</p>
+                            opportunity that matches my skills and experience, then don't hesitate to contact me.</p> -->
 
-                        <button class="removeDefBtnCss buttonColors contactBtn">CONTACT</button>
+                        <!-- <button class="removeDefBtnCss buttonColors contactBtn"
+                            (click)="scrollTo('contact')">CONTACT</button> -->
                     </div>
                 </div>
 
@@ -59,16 +65,13 @@
     <section id="projects" class="projects-section text-center fontName bgColor textColor">
         <div class="spaceAbout">
             <h2>PROJECTS</h2>
-            <p>Here you will find some of the personal and client projects that I created with each project containing
-                its
-                own case study.</p>
+            <p>Here you will find some of the personal projects that I developed.</p>
         </div>
 
         <div class="container">
             <div class="row">
                 <div *ngFor="let project of projects" class="col-md-4 mb-4">
-                    <button class="removeDefBtnCss buttonColors projectBtn"
-                        (click)="navigateToProject(project)">
+                    <button class="removeDefBtnCss buttonColors projectBtn" (click)="navigateToProject(project)">
                         <div>
                             <p><strong>{{ project.title }}</strong></p>
                             <p class="text-start heightAndScroll">{{ project.description }}</p>
@@ -123,7 +126,8 @@
                         <!-- <a href="#" class="social-icon textColor" target="_blank">
                             <i class="fab fa-instagram"></i>
                         </a> -->
-                        <a href="https://www.linkedin.com/in/birjiskhatoon213/" class="social-icon textColor" target="_blank">
+                        <a href="https://www.linkedin.com/in/birjiskhatoon213/" class="social-icon textColor"
+                            target="_blank">
                             <i class="fab fa-linkedin"></i>
                         </a>
                         <!-- Add more social media icons as needed -->

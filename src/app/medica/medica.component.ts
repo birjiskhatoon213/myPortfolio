@@ -73,6 +73,16 @@ export class MedicaComponent {
       alt: 'Image 3'
     }
   ];
+
+  letters = [
+    "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+  ];
+
+  symptoms = [
+    "Abdominal pain", "Chest pain", "Constipation", "Cough", "Breath difficulty", "Red eye", "Foot pain", "Foot swelling", "Headache",
+    "Heart palpitation", "Knee pain", "Hip pain", "Low back pain", "Nasal congestion", "Neck pain"
+  ];
+
   isNavbarCollapsed = true;
   isMedicoNavbarCollapsed = true;
   isTogglingNavbar = false;

@@ -1,7 +1,6 @@
 .card {
     border-radius: 20px;
     overflow: hidden;
-    /* Ensures the image doesn't overflow the rounded corners */
 }
 
 .card-img-top {
@@ -15,4 +14,10 @@
     width: 100%;
     top: 0;
     z-index: 1000;
+}
+
+@media (max-width: 576px) {
+    .col-md-3 {
+        width: 50%;
+    }
 }

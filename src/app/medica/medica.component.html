@@ -28,13 +28,13 @@
                         <button class="nav-link" (click)="scrollTo('practices')">Practices</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link" (click)="scrollTo('howitworks')">How it works</button>
+                        <button class="nav-link" (click)="scrollTo('whychooseus')">Why choose us</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link" (click)="scrollTo('prices')">Prices</button>
+                        <button class="nav-link" (click)="scrollTo('schedule')">Schedule</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link" (click)="scrollTo('contactMedico')">Contact</button>
+                        <button class="nav-link" (click)="scrollTo('search')">Search</button>
                     </li>
                 </ul>
                 <ul class="navbar-nav" style="margin-left: auto;">
@@ -123,7 +123,7 @@
             </div>
         </div>
     </section>
-    <section id="howitworks" class="howitworks-section fontName mb-5">
+    <section id="whychooseus" class="whychooseus-section fontName mb-5">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 col-12 text-center">
@@ -160,7 +160,7 @@
             </div>
         </div>
     </section>
-    <section class="blueAppointment">
+    <section id="schedule" class="blueAppointment">
         <div class="container-fluid">
             <div class="row d-flex justify-content-center p-5">
                 <div class="col-md-8 col-12 text-center">
@@ -174,6 +174,42 @@
                         <button class="removeDefBtnCss m-2 pb-1">
                             <span class="p-2">Book virtual appointment</span>
                         </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="search" class="search-section fontName">
+        <div class="container-fluid">
+            <div class="row" style="margin-top: 10%;">
+                <div class="col-md-4 col-12 mb-4">
+                    <h1 style="font-size: 40px;">Search diseases & conditions</h1>
+                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt tenetur corporis
+                        earum.</span>
+                </div>
+                <div class="col-md-8 col-12">
+                    <div class="row mb-4 px-2">
+                        <div class="col-2 w-auto d-flex justify-content-center mb-4" *ngFor="let letter of letters">
+                            <div class="search-item">
+                                <span>{{letter}}</span>
+                            </div>
+                        </div>
+                        <span style="font-size: 13px;">You don’t know it’s name? Check out symptom checker below</span>
+                    </div>
+                </div>
+                <div class="col-md-8 offset-md-4">
+                    <div class="home-content mb-4 px-2">
+                        <h1>Symptom checker</h1>
+                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                            incididunt.</span>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-md-4 col-4 w-auto d-flex justify-content-center" style="height: fit-content;"
+                            *ngFor="let symptom of symptoms">
+                            <div class="symptoms">
+                                <span>{{symptom}}</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

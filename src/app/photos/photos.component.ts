@@ -74,8 +74,8 @@ export class PhotosComponent implements AfterViewInit {
   ngAfterViewInit() {
     const gridElement = this.elementRef.nativeElement.querySelector('.row');
     this.grid = new Masonry(gridElement, {
-      itemSelector: '.col-md-3',
-      columnWidth: '.col-md-3',
+      itemSelector: '.col-md-3, .col-sm-6, .col-xs-3',
+      columnWidth: '.col-md-3, .col-sm-6, .col-xs-3',
       percentPosition: true
     });
 
@@ -84,8 +84,8 @@ export class PhotosComponent implements AfterViewInit {
         // Recreate Masonry instance with updated items
         // this.grid.destroy();
         this.grid = new Masonry(gridElement, {
-          itemSelector: '.col-md-3',
-          columnWidth: '.col-md-3',
+          itemSelector: '.col-md-3, .col-sm-6, .col-xs-3',
+          columnWidth: '.col-md-3, .col-sm-6, .col-xs-3',
           percentPosition: true
         });
       }

@@ -116,11 +116,14 @@
                         Details</button>
                 </div> -->
 
-                <div *ngIf="!showContactForm" class="col-md-12 contactBox">
+                <div *ngIf="!showContactForm" class="col-md-12 col-12 contactBox"
+                    style="white-space: break-spaces; word-wrap: break-word;">
                     <!-- Social Media Icons and Contact Information -->
                     <!-- Include your social media icons and contact information here -->
-                    <p>Phone: {{ phoneNumber }}</p>
-                    <p>Email: {{ emailId }}</p>
+                    <div class="col-md-12 col-12 text-center">
+                        <p>Phone: {{ phoneNumber }}</p>
+                        <p>Email: {{ emailId }}</p>
+                    </div>
                     <!-- Add other contact details as needed -->
                     <div class="social-icons">
                         <!-- <a href="#" class="social-icon textColor" target="_blank">

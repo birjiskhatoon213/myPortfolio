@@ -1,4 +1,4 @@
-<div class="medicoHeader" style="background-color: #FFFFFF;">
+<div class="medicoHeader p-2" style="background-color: #FFFFFF;">
     <nav class="navbar navbar-expand-lg navbar-light fontName alignCenter p-0">
         <div class="container-fluid p-0">
             <button class="navbar-brand hand px-1 removeDefBtnCss" (click)="goToHome()">
@@ -36,6 +36,12 @@
                     <li class="nav-item">
                         <button class="nav-link" (click)="scrollTo('search')">Search</button>
                     </li>
+                    <li class="nav-item">
+                        <button class="nav-link" (click)="scrollTo('mod')">MOD</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" (click)="scrollTo('news')">News</button>
+                    </li>
                 </ul>
                 <ul class="navbar-nav" style="margin-left: auto;">
                     <li class="nav-item">
@@ -45,7 +51,7 @@
                         </span>
                     </li>
                     <li class="nav-item my-auto" style="height: fit-content;">
-                        <button class="medicoButtonCss" (click)="scrollTo('contactMedico')">
+                        <button class="medicoButtonCss" (click)="scrollTo('bam')">
                             <img src="assets\medicoAppointment.svg" alt="" style="height: 20px;">
                             <span>Book an appointment</span>
                         </button>
@@ -65,7 +71,7 @@
                         <h2>Experienced general practitioners who have an eye for your care</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
                         </p>
-                        <button class="medicoButtonCss">
+                        <button class="medicoButtonCss" (click)="scrollTo('bam')">
                             <img src="assets\medicoAppointment.svg" alt="" style="height: 20px;">
                             <span>Book an appointment</span>
                         </button>
@@ -190,9 +196,9 @@
                 <div class="col-md-8 col-12">
                     <div class="row mb-4 px-2">
                         <div class="col-2 w-auto d-flex justify-content-center mb-4" *ngFor="let letter of letters">
-                            <div class="search-item">
+                            <button class="search-item removeDefBtnCss">
                                 <span>{{letter}}</span>
-                            </div>
+                            </button>
                         </div>
                         <span style="font-size: 13px;">You don’t know it’s name? Check out symptom checker below</span>
                     </div>
@@ -206,8 +212,122 @@
                     <div class="row mb-4">
                         <div class="col-md-4 col-4 w-auto d-flex justify-content-center" style="height: fit-content;"
                             *ngFor="let symptom of symptoms">
-                            <div class="symptoms">
+                            <button class="symptoms removeDefBtnCss">
                                 <span>{{symptom}}</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="bam" class="bam-section fontName">
+        <div class="container-fluid">
+            <div class="row text-center" style="margin-top: 10%;">
+                <div class="col-md-12 col-12">
+                    <h1 style="font-size: 40px;">Book an appointment</h1>
+                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                        incididunt.</span>
+                </div>
+                <div class="col-md-12 col-12">
+                    <button class="removeDefBtnCss bam-section-btn m-2 pb-1">
+                        <span class="p-2">In person appointment</span>
+                    </button>
+                    <button class="removeDefBtnCss bam-section-btn m-2 pb-1">
+                        <span class="p-2">Virtual appointment</span>
+                    </button>
+                </div>
+                <form class="col-md-5 col-12 m-auto my-4">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Name" name="name">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control" placeholder="Phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <input type="date" class="form-control" placeholder="DD-MM-YYYY" name="dob">
+                    </div>
+                    <div class="form-group mb-4">
+                        <input type="text" class="form-control" placeholder="Practice" name="practice">
+                    </div>
+                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                        incididunt.</span> <br>
+                    <button type="submit" class="medicoButtonCss col-md-12 col-12 mt-4 d-flex justify-content-center">
+                        <span>Book</span>
+                    </button>
+                    <br>
+                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                        incididunt.</span>
+                </form>
+
+            </div>
+        </div>
+    </section>
+    <section id="mod" class="mod-section fontName mb-5">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 col-12 text-center">
+                    <div class="col-md-12 col-12">
+                        <h1>Meet our doctors</h1>
+                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                            incididunt.</span>
+                    </div>
+                    <div class="container mb-4">
+                        <div class="scrollable" #scrollable>
+                            <div class="row" id="doctorRow">
+                                <button class="col-md-3 col-3 doctor-card removeDefBtnCss"
+                                    *ngFor="let doctor of doctors">
+                                    <img src="{{doctor.image}}" alt="{{doctor.name}}" class="img-fluid doctor-image">
+                                    <div class="doctor-info">
+                                        <h4>{{doctor.name}}</h4>
+                                        <p>{{doctor.data}}</p>
+                                        <p class="description">{{doctor.description}}</p>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- <button class="scroll-btn left" (click)="scroll(-1)">&#10094;</button>
+                        <button class="scroll-btn right" (click)="scroll(1)">&#10095;</button> -->
+                    </div>
+                    <div class="col-md-12 col-12 d-flex justify-content-center">
+                        <input class="col-md-6 col-12 form-control mx-2 searchInput" list="datalistOptions"
+                            id="exampleDataList" placeholder="Search by name">
+                        <button class="medicoButtonCss col-md-6 col-12 mx-2" style="max-width: fit-content;">
+                            <span style="font-size: 12px;">Search doctor</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="news" class="news-section fontName mb-5">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 col-12 text-center">
+                    <div class="col-md-12 col-12">
+                        <h1>Meet our doctors</h1>
+                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                            incididunt.</span>
+                    </div>
+                    <div class="container mb-4">
+                        <div class="scrollable" #scrollable>
+                            <div class="row" id="cardRow">
+                                <button class="col-md-3 col-3 news-card removeDefBtnCss" *ngFor="let card of cards">
+                                    <img src="{{card.image}}" alt="{{card.title}}" class="img-fluid news-image">
+                                    <div class="card-info text-start p-5">
+                                        <p>{{card.date}}</p>
+                                        <div class="newsDescription">
+                                            <p>{{card.text}}</p>
+                                        </div>
+                                        <button class="removeDefBtnCss p-0 my-3">Read more
+                                            <img class="newsSectionReadmoreImg" src="assets\medicoBlackRightArrow.svg"
+                                                alt="">
+                                        </button>
+                                    </div>
+                                </button>
                             </div>
                         </div>
                     </div>

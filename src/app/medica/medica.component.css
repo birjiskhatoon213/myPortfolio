@@ -3,6 +3,7 @@
     width: 100%;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .medico-content h2 {
@@ -64,7 +65,7 @@
 
 .whychooseus-section {
     background-color: #D0F4FD;
-    padding: 5rem;
+    padding: 5rem 0;
 }
 
 .whychooseus-section h1 {
@@ -132,7 +133,7 @@
     /* font-weight: bold; */
 }
 
-.symptoms{
+.symptoms {
     background-color: #E9E9EB;
     border-radius: 10px;
     padding: 5px 10px;
@@ -143,6 +144,181 @@
     margin-top: 10px;
 }
 
+.bam-section-btn {
+    /* background-color: #FFFFFF; */
+    color: #000000;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+
+.bam-section span {
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.bam-section .form-control {
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid #B4B9C6;
+}
+
+.bam-section .form-control::placeholder {
+    color: #B4B9C6;
+}
+
+.mod-section {
+    background-color: #D0F4FD;
+    padding: 3rem 0;
+}
+
+.mod-section h1 {
+    font-weight: bolder;
+    font-size: 40px;
+}
+
+.mod-section span {
+    font-size: 16px;
+}
+
+.searchInput {
+    max-width: fit-content;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid #B4B9C6;
+    border-radius: 0;
+}
+
+/* Style for the container of the custom scrollbar */
+.scrollable,
+.newsDescription {
+    overflow-x: auto;
+    overflow-y: auto;
+    white-space: nowrap;
+    padding-bottom: 15px;
+    /* To accommodate scrollbar */
+}
+
+/* Style for the custom scrollbar */
+.scrollable::-webkit-scrollbar,
+.newsDescription::-webkit-scrollbar {
+    width: 6px;
+    height: 4px;
+    /* Width of the scrollbar */
+}
+
+/* Style for the custom scrollbar track */
+.scrollable::-webkit-scrollbar-track,
+.newsDescription::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 6px;
+}
+
+/* Style for the custom scrollbar thumb */
+.scrollable::-webkit-scrollbar-thumb,
+.newsDescription::-webkit-scrollbar-thumb {
+    background: #888;
+    /* Red color for the scrollbar thumb */
+    border-radius: 6px;
+    /* Rounded corners */
+}
+
+/* Hover style for the custom scrollbar thumb */
+.scrollable::-webkit-scrollbar-thumb:hover,
+.newsDescription::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    /* Darker red on hover */
+}
+
+#doctorRow {
+    display: inline-block;
+}
+
+.doctor-card {
+    display: inline-block;
+    vertical-align: top;
+    padding: 15px;
+    text-align: center;
+}
+
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    right: 0;
+}
+
+.doctor-image {
+    width: 100%;
+    height: 20rem;
+    max-width: 200px;
+    /* Adjust as needed */
+}
+
+.description {
+    white-space: break-spaces;
+}
+
+#cardRow {
+    display: inline-block;
+}
+
+.news-card {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0;
+    text-align: center;
+    background-color: #D9D9D9;
+    margin: 1rem;
+    position: relative;
+    /* overflow: hidden; */
+}
+
+.news-section {
+    /* background-color: #D0F4FD; */
+    padding: 3rem 0;
+}
+
+.news-section h1 {
+    font-weight: bolder;
+    font-size: 40px;
+}
+
+.news-section span {
+    font-size: 16px;
+}
+
+.news-image {
+    width: 100%;
+    height: 10rem;
+    object-fit: cover;
+    /* Ensure the image covers the entire area */
+    /* width: 100%;
+    height: 20rem;
+    max-width: 200px; */
+}
+
+.newsSectionReadmoreImg {
+    height: 20px;
+    margin: 0 10px;
+}
+
+.newsDescription {
+    white-space: break-spaces;
+    overflow: auto;
+    height: 9rem;
+}
 
 @media (max-width: 767px) {
     .blueBgColor li {
@@ -158,8 +334,18 @@
         max-width: 100%;
     }
 
+    .whychooseus-section img {
+        max-width: 75%;
+    }
+
     /* .blueAppointment{
         padding: 2rem;
         margin: auto;
     } */
+
+    @media (max-width: 576px) {
+        .whychooseus-section img {
+            max-width: 100%;
+        }
+    }
 }

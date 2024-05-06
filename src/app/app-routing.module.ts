@@ -15,8 +15,8 @@ const routes: Routes = [
     path: 'home/projects/convertors/:convertorName',
     loadChildren: () => import('./convertors/convertors.module').then(m => m.ConvertorsModule),
   },
-  { path: 'home/projects/medica', component: MedicaComponent },
-  { path: 'home/projects/photos', component: PhotosComponent },
+  { path: 'home/projects/medico', component: MedicaComponent },
+  { path: 'home/projects/gaze', component: PhotosComponent },
 ];
 
 @NgModule({

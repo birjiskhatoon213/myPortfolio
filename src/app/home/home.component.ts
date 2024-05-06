@@ -36,18 +36,18 @@ export class HomeComponent {
   projects: any[] = [
     {
       title: 'Convertors',
-      description: 'Convertors is a successful Open-Source project that I created which has been featured on some of the biggest tech sites like CSS-Tricks, Hostinger, etc. & used by thousands of developers globally. Dopefolio is a successful Open-Source project that I created which has been featured on some of the biggest tech sites like CSS-Tricks, Hostinger, etc. & used by thousands of developers globally.',
+      description: "Convertors is a user-friendly website offering a wide range of conversion tools for various needs. From web development to color conversions, temperature, time, currency, and more, it provides simple and efficient solutions. With a clean interface and responsive design, Convertors makes it easy to convert different units quickly and accurately. Built with Angular and Bootstrap, it's your go-to destination for all your conversion tasks.",
       projectLink: 'home/projects/convertors'
     },
     {
-      title: 'Wilsonport',
-      description: 'Wilsonport is a multiservice logistics and transport company, and I created their website from scratch using the frontend tools I know.',
-      projectLink: 'home/projects/medica'
+      title: 'Medico',
+      description: 'Medico is a healthcare website designed to provide users with easy access to medical services, information, and appointments. It offers a range of features including booking appointments, accessing clinical results, and learning about various medical practices. Technologies used in the development of Medica include Angular for frontend development, Bootstrap for responsive design and styling, HTML/CSS for structuring and styling the website, and TypeScript for implementing interactive features and functionality.',
+      projectLink: 'home/projects/medico'
     },
     {
-      title: 'Boreal Coffee Clone',
-      description: 'I re-created the frontend of Boreal Coffee\'s official web app because I got attracted to their beautiful UI. It was a great experience for me to build the entire frontend.',
-      projectLink: 'home/projects/photos'
+      title: 'Gaze',
+      description: 'Gaze is a minimalist web application that showcases images in a Pinterest-style layout, offering users an immersive visual experience. Utilizing the Masonry layout, Gaze presents a curated collection of images without any distractions, allowing users to focus solely on the visuals. Its clean interface and intuitive design ensure a seamless browsing experience for image viewing and discovery.',
+      projectLink: 'home/projects/gaze'
     },
     {
       title: 'Crown Template',

@@ -1,4 +1,4 @@
-import { Component, Renderer2, ElementRef } from '@angular/core';
+import { Component, Renderer2, ElementRef, ViewChild } from '@angular/core';
 import { PortfolioServiceService } from '../portfolio-service.service';
 
 @Component({
@@ -83,9 +83,30 @@ export class MedicaComponent {
     "Heart palpitation", "Knee pain", "Hip pain", "Low back pain", "Nasal congestion", "Neck pain"
   ];
 
+  doctors = [
+    { name: 'Dr. John', image: 'assets/mod6.jpg', data: 'Cardiologist', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.' },
+    { name: 'Dr. Lisa', image: 'assets/mod2.jpg', data: 'Dermatologist', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.' },
+    { name: 'Dr. David', image: 'assets/mod7.jpg', data: 'Pediatrician', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.' },
+    { name: 'Dr. Emily', image: 'assets/mod4.jpg', data: 'Oncologist', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.' },
+    { name: 'Dr. Michael', image: 'assets/mod8.jpg', data: 'Orthopedic Surgeon', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.' },
+    { name: 'Dr. Sarah', image: 'assets/mod1.jpg', data: 'Gynecologist', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.' },
+    { name: 'Dr. Rachel', image: 'assets/mod3.jpg', data: 'Neurologist', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.' },
+    { name: 'Dr. Emma', image: 'assets/mod5.jpg', data: 'Psychiatrist', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.' }
+  ];
+
+  cards = [
+    { title: 'Card 1', image: 'assets/news1.jpg', date: 'November 23, 2024', text: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
+    { title: 'Card 2', image: 'assets/news2.jpg', date: 'December 12, 2024', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in magna eu odio lacinia lobortis. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
+    { title: 'Card 3', image: 'assets/news3.jpg', date: 'January 5, 2025', text: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' },
+    { title: 'Card 1', image: 'assets/news4.jpg', date: 'November 23, 2024', text: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
+    { title: 'Card 2', image: 'assets/news5.jpg', date: 'December 12, 2024', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in magna eu odio lacinia lobortis.' },
+    { title: 'Card 3', image: 'assets/news6.jpg', date: 'January 5, 2025', text: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' }
+  ];
+
   isNavbarCollapsed = true;
   isMedicoNavbarCollapsed = true;
   isTogglingNavbar = false;
+  @ViewChild('scrollable') scrollable!: ElementRef;
 
   constructor(private renderer: Renderer2, private el: ElementRef, private portfolioService: PortfolioServiceService) { }
 
@@ -136,4 +157,8 @@ export class MedicaComponent {
   toggleMedicoNavbar() {
     this.isMedicoNavbarCollapsed = !this.isMedicoNavbarCollapsed;
   }
+
+  // scroll(direction: number) {
+  //   this.scrollable.nativeElement.scrollLeft += direction * 200;
+  // }
 }

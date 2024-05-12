@@ -1,3 +1,20 @@
+.homeHeader {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.homeSections {
+    padding-top: 3.438rem;
+}
+
+.nav-link.active {
+    border-bottom: 2px solid var(--primary-color);
+    ;
+}
+
 .home-section {
     /* background-image: url('src/assets/bg-image.jpg'); */
     /* background-color: #000; */
@@ -90,7 +107,7 @@
 }
 
 .contactBox {
-    height: 50vh;
+    min-height: 50vh;
     border: 1px solid;
     border-radius: 5px;
     padding: 1rem;
@@ -107,10 +124,66 @@
     /* Center children horizontally */
 }
 
+.contactBox input,
+textarea {
+    padding: 0.5rem 0.1rem;
+    margin: 0.5rem 0;
+    width: 100%;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+}
+
 .contactBtn {
     border-radius: 5px;
     padding: 10px 20px;
     /* Adjust padding for better button appearance */
     margin-top: 1rem;
     /* Add some top margin to the button */
+}
+
+.disabledForm {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    border-radius: 5px;
+    opacity: 0.3;
+    padding: 10px 20px;
+    /* Adjust padding for better button appearance */
+    margin-top: 1rem;
+    /* Add some top margin to the button */
+}
+
+.svg-container {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.svg-img {
+    width: 2rem;
+    /* Adjust as needed */
+    height: auto;
+    /* Maintain aspect ratio */
+}
+
+.homeColorPicker {
+    /* background-color: #E4E4E4; */
+    background-color: var(--bg-color);
+    padding: 2rem;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid;
+}
+
+/* .homeColorPicker.lighter-primary-background{
+    filter: brightness(0.75);
+} */
+
+.applyBtn {
+    border-radius: 5px;
+    padding: 5px;
 }

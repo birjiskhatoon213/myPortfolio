@@ -111,6 +111,7 @@ export class HeaderComponent {
   emitColorChange(): void {
     const colors = this.colorPickerForm.value;
     this.applyColors(colors);
+    this.closeNavbar();
   }
 
   applyColors(colors: { textColor: string; bgColor: string }): void {

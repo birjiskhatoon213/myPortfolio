@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MedicaComponent } from './medica/medica.component';
 import { PhotosComponent } from './photos/photos.component';
+import { FormsComponent } from './forms/forms.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { PhotosComponent } from './photos/photos.component';
     HomeComponent,
     HeaderComponent,
     MedicaComponent,
-    PhotosComponent
+    PhotosComponent,
+    FormsComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +32,7 @@ import { PhotosComponent } from './photos/photos.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    CommonModule
     // RouterModule.forRoot([
     //   { path: 'convertors', loadChildren: () => import('./convertors/convertors.module').then(m => m.ConvertorsModule) },
     // ]),

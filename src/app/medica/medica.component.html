@@ -1,4 +1,4 @@
-<div class="medicoHeader p-2" style="background-color: #FFFFFF;">
+<div class="medicoHeader p-2 pb-0" style="background-color: #FFFFFF;">
     <nav class="navbar navbar-expand-lg navbar-light fontName alignCenter p-0">
         <div class="container-fluid p-0">
             <button class="navbar-brand hand px-1 removeDefBtnCss" (click)="goToHome()">
@@ -16,31 +16,35 @@
             <div class="collapse navbar-collapse justify-content-start px-2" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <button class="nav-link hand" (click)="scrollTo('medico')">
+                        <button class="nav-link hand" data-section="medico" (click)="scrollTo('medico')">
                             <img src="assets/medicoIcon.svg" alt="" style="height: 20px;">
                             <strong>Medico</strong>
                         </button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link hand" (click)="scrollTo('features')">Features</button>
+                        <button class="nav-link hand" data-section="features"
+                            (click)="scrollTo('features')">Features</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link" (click)="scrollTo('practices')">Practices</button>
+                        <button class="nav-link" data-section="practices"
+                            (click)="scrollTo('practices')">Practices</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link" (click)="scrollTo('whychooseus')">Why choose us</button>
+                        <button class="nav-link" data-section="whychooseus" (click)="scrollTo('whychooseus')">Why choose
+                            us</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link" (click)="scrollTo('schedule')">Schedule</button>
+                        <button class="nav-link" data-section="schedule"
+                            (click)="scrollTo('schedule')">Schedule</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link" (click)="scrollTo('search')">Search</button>
+                        <button class="nav-link" data-section="search" (click)="scrollTo('search')">Search</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link" (click)="scrollTo('mod')">MOD</button>
+                        <button class="nav-link" data-section="mod" (click)="scrollTo('mod')">MOD</button>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link" (click)="scrollTo('news')">News</button>
+                        <button class="nav-link" data-section="news" (click)="scrollTo('news')">News</button>
                     </li>
                 </ul>
                 <ul class="navbar-nav" style="margin-left: auto;">
@@ -62,7 +66,7 @@
     </nav>
 </div>
 
-<div style="white-space: break-spaces; word-wrap: break-word;">
+<div style="white-space: break-spaces; word-wrap: break-word; padding-top: 55px;">
     <section id="medico" class="medico-section fontName">
         <div class="container-fluid">
             <div class="row" style="margin-top: 7%;">
@@ -270,7 +274,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 col-12 text-center">
-                    <div class="col-md-12 col-12">
+                    <div class="col-md-12 col-12 pb-4">
                         <h1>Meet our doctors</h1>
                         <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                             incididunt.</span>
@@ -307,8 +311,8 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 col-12 text-center">
-                    <div class="col-md-12 col-12">
-                        <h1>Meet our doctors</h1>
+                    <div class="col-md-12 col-12 pb-4">
+                        <h1>Read our latest news</h1>
                         <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                             incididunt.</span>
                     </div>
@@ -317,7 +321,7 @@
                             <div class="row" id="cardRow">
                                 <button class="col-md-3 col-3 news-card removeDefBtnCss" *ngFor="let card of cards">
                                     <img src="{{card.image}}" alt="{{card.title}}" class="img-fluid news-image">
-                                    <div class="card-info text-start p-5">
+                                    <div class="card-info text-start p-4">
                                         <p>{{card.date}}</p>
                                         <div class="newsDescription">
                                             <p>{{card.text}}</p>

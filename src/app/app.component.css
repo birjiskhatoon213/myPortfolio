@@ -9,6 +9,6 @@
 
 /* Add some padding to the content area */
 .router-content {
-    padding-top: 55px;
+    /* padding-top: 55px; */
     /* Adjust this value based on the height of your sticky header */
 }

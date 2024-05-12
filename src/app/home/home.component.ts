@@ -1,7 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Renderer2, ElementRef, HostListener, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { PortfolioServiceService } from '../portfolio-service.service';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+
+interface FormData {
+  fullName: string;
+  email: string;
+  phoneNumber: string;
+  message: string;
+}
 
 @Component({
   selector: 'app-home',
@@ -9,6 +17,24 @@ import { PortfolioServiceService } from '../portfolio-service.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+
+  textColor: string = '#2461FF';
+  bgColor: string = '#FFFFFF';
+  colorPickerFormHome!: FormGroup;
+  isColorPicker = false;
+  isTogglingNavbar = false;
+  isNavbarCollapsed = true;
+  activeSection: string = 'home';
+
+  formData: FormData = {
+    fullName: '',
+    email: '',
+    phoneNumber: '',
+    message: ''
+  };
+  formSuccess: boolean = false;
+  showFormStatus: boolean = false;
+
   showContactForm: boolean = false; // Flag to toggle between initial content and form
 
   // Include your contact information
@@ -52,7 +78,7 @@ export class HomeComponent {
     {
       title: 'Crown Template',
       description: 'Crown is a web template that I created targeting the restaurant and food industry, which anyone can use to present their business online.',
-      projectLink: 'CASE STUDY'
+      projectLink: 'home/projects/forms'
     }
   ];
 
@@ -89,10 +115,39 @@ export class HomeComponent {
     }
   ];
 
-  constructor(private http: HttpClient, private router: Router, private portfolioService: PortfolioServiceService) { }
+  @ViewChild('scrollable') scrollable!: ElementRef;
+
+  constructor(private http: HttpClient, private router: Router, private renderer: Renderer2, private el: ElementRef, private fb: FormBuilder, private portfolioService: PortfolioServiceService) { }
   ngOnInit() {
     this.portfolioService.goToHome();
+    this.colorPickerFormHome = this.fb.group({
+      textColor: new FormControl(this.textColor),
+      bgColor: new FormControl(this.bgColor),
+    });
+    this.onScroll(); 
+    window.addEventListener('scroll', this.onScroll, true);
   }
+
+  onScroll = () => {
+    const sections = ['home', 'about', 'projects', 'download', 'contact'];
+
+    let scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+
+    for (let i = sections.length - 1; i >= 0; i--) {
+      const section = document.getElementById(sections[i]);
+      if (section && section.offsetTop - 100 <= scrollPosition) {
+        const headers = document.querySelectorAll('.navbar-nav .nav-link');
+        headers.forEach(header => {
+          header.classList.remove('active');
+        });
+        const activeHeader = document.querySelector('.navbar-nav .nav-link[data-section="' + sections[i] + '"]');
+        if (activeHeader) {
+          activeHeader.classList.add('active');
+        }
+        break;
+      }
+    }
+  };
 
   // Placeholder function for handling file download logic
   downloadResource(fileUrl: string): void {
@@ -122,10 +177,6 @@ export class HomeComponent {
     this.showContactForm = !this.showContactForm;
   }
 
-  submitForm() {
-    // Add your form submission logic here
-  }
-
   navigateToProject(route: any): void {
     // Use Angular's Router to navigate to the specified route
     // if (route.title == 'Convertors') {
@@ -144,4 +195,104 @@ export class HomeComponent {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
+
+  submitForm() {
+    const url = 'https://api.web3forms.com/submit';
+    const accessKey = '46de082e-09c1-42a3-8012-4e9a17705f75';
+
+    const formData = new FormData();
+    formData.append('access_key', accessKey);
+    formData.append('fullName', this.formData.fullName);
+    formData.append('email', this.formData.email);
+    formData.append('phoneNumber', this.formData.phoneNumber);
+    formData.append('message', this.formData.message);
+
+    this.http.post(url, formData)
+      .subscribe({
+        next: response => {
+          console.log('Form submission successful:', response);
+          // Handle success, maybe show a success message
+          this.formSuccess = !!response; // Set formSuccess to true if response is truthy
+          if (this.formSuccess) {
+            this.showFormStatus = true;
+            setTimeout(() => {
+              this.showFormStatus = false;
+              this.resetForm();
+            }, 3000); // Hides the success message after 3 seconds
+          }
+          // console.log("form status", this.formSuccess)
+        },
+        error: error => {
+          // console.error('Form submission failed:', error);
+          // Handle error, maybe show an error message
+          this.showFormStatus = true;
+          setTimeout(() => {
+            this.showFormStatus = false;
+          }, 3000); // Hides the error message after 3 seconds
+        }
+      });
+  }
+
+  resetForm() {
+    this.formData = {
+      fullName: '',
+      email: '',
+      phoneNumber: '',
+      message: ''
+    };
+  }
+
+  restrictInput(event: any) {
+    const input = event.target;
+    const regex = /^[+]{0,1}[0-9]*$/;
+    if (!regex.test(input.value)) {
+      input.value = input.value.replace(/[^+0-9]/g, '');
+    }
+  }
+
+  openColorPicker() {
+    this.isColorPicker = !this.isColorPicker;
+    // this.activeSection = 'colorpicker';
+  }
+
+  emitColorChange(): void {
+    const colors = this.colorPickerFormHome.value;
+    this.applyColors(colors);
+    // this.closeNavbar();
+  }
+
+  applyColors(colors: { textColor: string; bgColor: string }): void {
+    document.documentElement.style.setProperty('--primary-color', colors.textColor);
+    document.documentElement.style.setProperty('--bg-color', colors.bgColor);
+    this.isColorPicker = false;
+  }
+
+  toggleNavbar(): void {
+    if (this.isTogglingNavbar) {
+      return; // If already in progress, ignore the click
+    }
+
+    // Close color picker if open
+    if (this.isColorPicker) {
+      this.isColorPicker = false;
+    }
+
+    this.isTogglingNavbar = true;
+
+    this.isNavbarCollapsed = !this.isNavbarCollapsed;
+    if (this.isNavbarCollapsed) {
+      this.closeNavbar();
+    }
+
+    // Reset the flag after a short delay (adjust as needed)
+    setTimeout(() => {
+      this.isTogglingNavbar = false;
+    }, 300);
+  }
+
+  closeNavbar(): void {
+    this.isNavbarCollapsed = true;
+    this.renderer.removeClass(this.el.nativeElement.querySelector('.navbar-collapse'), 'show');
+  }
+
 }

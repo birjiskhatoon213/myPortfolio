@@ -111,8 +111,29 @@ export class MedicaComponent {
   constructor(private renderer: Renderer2, private el: ElementRef, private portfolioService: PortfolioServiceService) { }
 
   ngOnInit() {
-
+    window.addEventListener('scroll', this.onScroll, true);
   }
+
+  onScroll = () => {
+    const sections = ['medico', 'features', 'practices', 'whychooseus', 'schedule', 'search', 'bam', 'mod', 'news'];
+
+    let scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+
+    for (let i = sections.length - 1; i >= 0; i--) {
+      const section = document.getElementById(sections[i]);
+      if (section && section.offsetTop - 55 <= scrollPosition) {
+        const headers = document.querySelectorAll('.navbar-nav .nav-link');
+        headers.forEach(header => {
+          header.classList.remove('active');
+        });
+        const activeHeader = document.querySelector('.navbar-nav .nav-link[data-section="' + sections[i] + '"]');
+        if (activeHeader) {
+          activeHeader.classList.add('active');
+        }
+        break;
+      }
+    }
+  };
 
   scrollTo(target: string): void {
     const element = document.getElementById(target);

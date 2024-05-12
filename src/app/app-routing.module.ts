@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { MedicaComponent } from './medica/medica.component';
 import { PhotosComponent } from './photos/photos.component';
+import { FormsComponent } from './forms/forms.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -17,6 +18,7 @@ const routes: Routes = [
   },
   { path: 'home/projects/medico', component: MedicaComponent },
   { path: 'home/projects/gaze', component: PhotosComponent },
+  { path: 'home/projects/forms', component: FormsComponent },
 ];
 
 @NgModule({
